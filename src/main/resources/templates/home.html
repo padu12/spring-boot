@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en", >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PASSWORD</th>
+            <th>EMAIL</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getLogin()}"></td>
+            <td th:text="${user.getPassword()}">name</td>
+            <td th:text="${user.getEmail()}"></td>
+        </tr>
+    </table>
+</body>
+</html>
