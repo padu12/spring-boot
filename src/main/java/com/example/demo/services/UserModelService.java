@@ -17,4 +17,12 @@ public class UserModelService {
     public List<UserModel> findAll(){
         return userModelRepository.findAll();
     }
+
+    public void save(UserModel userModel) {
+        userModelRepository.save(userModel);
+    }
+
+    public void delete(int id) {
+        userModelRepository.deleteById(id);
+    }
 }

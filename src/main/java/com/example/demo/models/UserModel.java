@@ -10,11 +10,11 @@ public class UserModel {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "login")
     private String login;
-
-    @Column(name = "password")
-    private String password;
 
     @Column(name = "email")
     private String email;
@@ -22,9 +22,9 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(String login, String password, String email) {
+    public UserModel(String name, String login, String email) {
+        this.name = name;
         this.login = login;
-        this.password = password;
         this.email = email;
     }
 
@@ -36,20 +36,20 @@ public class UserModel {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getLogin() {
         return login;
     }
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {

@@ -7,6 +7,7 @@
 <style>
     table, th, td {
         border:1px solid black;
+        border-collapse: collapse;
     }
 </style>
 <body>
@@ -14,15 +15,32 @@
         <tr>
             <th>ID</th>
             <th>NAME</th>
-            <th>PASSWORD</th>
+            <th>LOGIN</th>
             <th>EMAIL</th>
         </tr>
         <tr th:each="user : ${users}">
             <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getName()}">name</td>
             <td th:text="${user.getLogin()}"></td>
-            <td th:text="${user.getPassword()}">name</td>
             <td th:text="${user.getEmail()}"></td>
+            <td>
+                <form th:method="DELETE" th:action="@{/delete/{id}(id=${user.getId()})}">
+                    <input type="submit" value="DELETE"/>
+                </form>
+            </td>
         </tr>
     </table>
+    <form th:method="POST" th:action="@{/create1}" th:object="${newUser}">
+        <input placeholder="User name" type="text" th:field="*{name}" id="name"/>
+        <input placeholder="User login" type="text" th:field="*{login}" id="login"/>
+        <input placeholder="User email" type="text" th:field="*{email}" id="email"/>
+        <br/>
+        <input type="submit" value="Create!"/>
+    </form>
+
+    <form>
+        <input type="text" />
+        <input type="submit" value="Search by login"/>
+    </form>
 </body>
 </html>
